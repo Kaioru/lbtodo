@@ -1,3 +1,19 @@
-{{page-title "@lbtodo/web"}}
+{{page-title "lbtodo"}}
 
-{{outlet}}
+<div class="pusher">
+
+<div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+    <div class="row">
+        <div class="column">
+            <div class="ui tabular menu">
+            <LinkTo @route="tasks" class="item">Tasks</LinkTo>
+            <LinkTo @route="authors" class="item">Authors</LinkTo>
+            </div>
+            {{outlet}}
+        </div>
+    </div>
+    </div>
+</div>
+
+</div>
