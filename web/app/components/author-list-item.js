@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class AuthorListItemComponent extends Component {
-    @tracked authorNewName = "abc";
+    @tracked authorNewName = "";
 
     @action
     toggleModalAuthorEdit(author) {
