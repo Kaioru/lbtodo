@@ -16,3 +16,42 @@
         <div class="description">Lorem ipsum dolor sit</div>
     </div>
 </div>
+
+<div class="ui modal form" id="modal-edit-{{@author.id}}">
+  <i class="close icon"></i>
+  <div class="header">
+    Edit Author
+  </div>
+  <div class="content">
+    <div class="field">
+        <label>Name</label>
+        {{input value=this.authorNewName}}
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button">
+      Cancel
+    </button>
+    <button class="ui positive right button" {{action "updateAuthor" @author}}>
+      Update
+    </button>
+  </div>
+</div>
+
+<div class="ui modal form" id="modal-delete-{{@author.id}}">
+  <i class="close icon"></i>
+  <div class="header">
+    Delete Author
+  </div>
+  <div class="content">
+    <p>Are you sure you would like to delete '{{@author.name}}'?</p>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button">
+      Cancel
+    </button>
+    <button class="ui negative right button" {{action "deleteAuthor" @author}}>
+      Delete
+    </button>
+  </div>
+</div>
