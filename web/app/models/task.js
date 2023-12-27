@@ -10,6 +10,7 @@ export default class TaskModel extends Model {
   @attr('date') dueDate;
   @belongsTo('author', {
     async: true,
-    inverse: null
-  }) authorid;
+    inverse: null,
+  })
+  authorid;
 }

@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="content">
+        <div class="header">
+            {{@task.title}}
+        </div>
+        <div class="meta">
+            <span>By {{@task.authorid.name}}</span>
+            <span>&mdash;</span>
+            <span>Due {{moment-from-now @task.dueDate}}</span>
+        </div>
+        <div class="description">
+            {{@task.description}}
+        </div>
+    </div>
+    <div class="extra content">
+        {{#if (eq @task.status "pending")}}
+            <div class="ui three buttons">
+                <div class="ui basic green button" {{action "toggleModalTaskComplete" @task}}>
+                    <i class="small middle aligned icon check"></i>
+                </div>
+                <div class="ui basic blue button" {{action "toggleModalTaskEdit" @task}}>
+                    <i class="small middle aligned icon pen"></i>
+                </div>
+                <div class="ui basic red button" {{action "toggleModalTaskDelete" @task}}>
+                    <i class="small middle aligned icon trash"></i>
+                </div>
+            </div>
+        {{else}}
+            <span>Completed on ..</span>
+        {{/if}}
+    </div>
+</div>

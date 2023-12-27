@@ -1,0 +1,18 @@
+<div class="item">
+    <div class="right floated content">
+        <div class="ui two buttons">
+            <div class="ui basic blue button" {{action "toggleModalAuthorEdit" @author}}>
+                <i class="small middle aligned icon pen"></i>
+            </div>
+            <div class="ui basic red button" {{action "toggleModalAuthorDelete" @author}}>
+                <i class="small middle aligned icon trash"></i>
+            </div>
+        </div>
+    </div>
+
+    <i class="large user middle aligned icon"></i>
+    <div class="content">
+        <a class="header">{{@author.name}}</a>
+        <div class="description">Lorem ipsum dolor sit</div>
+    </div>
+</div>
