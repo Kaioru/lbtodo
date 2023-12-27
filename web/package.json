@@ -76,5 +76,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "ember-moment": "^10.0.0"
   }
 }
