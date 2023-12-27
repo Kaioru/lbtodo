@@ -12,7 +12,7 @@
                 {{task.title}}
             </div>
             <div class="meta">
-                <span>By {{task.authorId.name}}</span>
+                <span>By {{task.authorid.name}}</span>
                 <span>&mdash;</span>
                 <span>Due {{moment-from-now task.dueDate}}</span>
             </div>
@@ -21,17 +21,21 @@
             </div>
         </div>
         <div class="extra content">
-            <div class="ui three buttons">
-                <div class="ui basic green button">
-                    <i class="small middle aligned icon check"></i>
+            {{#if (eq task.status "pending")}}
+                <div class="ui three buttons">
+                    <div class="ui basic green button">
+                        <i class="small middle aligned icon check"></i>
+                    </div>
+                    <div class="ui basic blue button">
+                        <i class="small middle aligned icon pen"></i>
+                    </div>
+                    <div class="ui basic red button">
+                        <i class="small middle aligned icon trash"></i>
+                    </div>
                 </div>
-                <div class="ui basic blue button">
-                    <i class="small middle aligned icon pen"></i>
-                </div>
-                <div class="ui basic red button">
-                    <i class="small middle aligned icon trash"></i>
-                </div>
-            </div>
+            {{else}}
+                <span>Completed on ..</span>
+            {{/if}}
         </div>
     </div>
 

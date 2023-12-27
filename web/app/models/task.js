@@ -11,5 +11,5 @@ export default class TaskModel extends Model {
   @belongsTo('author', {
     async: true,
     inverse: null
-  }) authorId;
+  }) authorid;
 }
