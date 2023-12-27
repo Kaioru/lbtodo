@@ -1,0 +1,17 @@
+{
+  "name": "lbtodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "web": "cd web && npm start",
+    "api": "cd api && npm start",
+    "start": "concurrently \"npm run web\" \"npm run api\""
+  },
+  "keywords": [],
+  "author": "Kaioru",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
