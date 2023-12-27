@@ -17,7 +17,7 @@
     "tasks": {
       "type": "hasMany",
       "model": "Task",
-      "foreignKey": "",
+      "foreignKey": "authorid",
       "options": {
         "nestRemoting": true
       }

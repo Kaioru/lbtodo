@@ -26,5 +26,13 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {},
+  "foreignKeys": {
+    "authorid": {
+      "name": "authorid",
+      "foreignKey": "authorid",
+      "entityKey": "id",
+      "entity": "Author"
+    }
+  }
 }
