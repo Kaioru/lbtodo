@@ -12,7 +12,9 @@
         {{task.title}}
     </div>
     <div class="meta">
-        Due {{moment-from-now task.dueDate}}
+        <span>By {{task.authorId.name}}</span>
+        <span>&mdash;</span>
+        <span>Due {{moment-from-now task.dueDate}}</span>
     </div>
     <div class="description">
         {{task.description}}

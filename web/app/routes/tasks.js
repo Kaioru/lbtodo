@@ -5,6 +5,8 @@ export default class TasksRoute extends Route {
     @service store;
   
     model() {
-      return this.store.findAll('task');
+      return this.store.findAll('task', {
+        include: 'author'
+      });
     }
 }
