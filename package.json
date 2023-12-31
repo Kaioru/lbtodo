@@ -6,6 +6,7 @@
   "scripts": {
     "web": "cd web && npm start",
     "api": "cd api && npm start",
+    "deps": "cd api && npm install && cd ../api && npm install ",
     "start": "concurrently \"npm run web\" \"npm run api\""
   },
   "keywords": [],
