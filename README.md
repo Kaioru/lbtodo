@@ -4,6 +4,7 @@ a task management app in Loopback 3 and Ember.js
 ## 🚀 Setup 
 ### Prerequisites
 * A running PostgreSQL server
+* This project is built on Node 16.16.0
 
 ### 🖥️ Running on Local Machine
 1. Install dependencies

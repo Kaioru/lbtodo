@@ -34,5 +34,8 @@
       "entityKey": "id",
       "entity": "Author"
     }
+  },
+  "mixins": {
+    "TimeStamp" : true
   }
 }
