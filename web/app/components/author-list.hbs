@@ -1,7 +1,7 @@
 {{#if @authors.length}}
 
 <div class="ui clearing segment">
-  <div class="ui right floated green labeled icon button">
+  <div class="ui right floated green labeled icon button" {{action "toggleModalAuthorCreate"}}>
     Create New Author
     <i class="add icon"></i>
   </div>
@@ -24,10 +24,31 @@
     No authors yet..
   </div>
 
-  <div class="ui primary green labeled icon button">
+  <div class="ui primary green labeled icon button" {{action "toggleModalAuthorCreate"}}>
     Create New Author
     <i class="add icon"></i>
   </div>
 </div>
 
 {{/if}}
+
+<div class="ui modal form" id="modal-create-author">
+  <i class="close icon"></i>
+  <div class="header">
+    Create Author
+  </div>
+  <div class="content">
+    <div class="field">
+        <label>Name</label>
+        {{input value=this.authorNewName}}
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button" type="button">
+      Cancel
+    </button>
+    <button class="ui positive right button" type="button" {{action "createAuthor"}}>
+      Create
+    </button>
+  </div>
+</div>
