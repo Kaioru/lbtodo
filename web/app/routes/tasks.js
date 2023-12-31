@@ -4,9 +4,12 @@ import { service } from '@ember/service';
 export default class TasksRoute extends Route {
   @service store;
 
-  model() {
-    return this.store.findAll('task', {
-      include: 'author',
-    });
+  async model() {
+    return {
+      tasks: await this.store.findAll('task', {
+        include: 'author',
+      }),
+      authors: await this.store.findAll('author'),
+    };
   }
 }

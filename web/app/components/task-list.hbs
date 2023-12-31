@@ -1,13 +1,13 @@
 {{#if @tasks.length}}
 
 <div class="ui clearing segment">
-  <div class="ui right floated green labeled icon button">
-    Create New Task
-    <i class="add icon"></i>
-  </div>
-  <h1 class="ui left floated header">
-    Tasks
-  </h1>
+    <div class="ui right floated green labeled icon button" {{action 'toggleModalTaskCreate' }}>
+        Create New Task
+        <i class="add icon"></i>
+    </div>
+    <h1 class="ui left floated header">
+        Tasks
+    </h1>
 </div>
 
 <div class="ui cards">
@@ -19,15 +19,79 @@
 {{else}}
 
 <div class="ui placeholder segment">
-  <div class="ui icon header">
-    <i class="pdf file outline icon"></i>
-    No tasks yet..
-  </div>
+    <div class="ui icon header">
+        <i class="pdf file outline icon"></i>
+        No tasks yet..
 
-  <div class="ui primary green labeled icon button">
-    Create New Task
-    <i class="add icon"></i>
-  </div>
+        {{#unless @authors.length}}
+        <div class="ui">Task creation is only allowed when there are authors!</div>
+        {{/unless}}
+    </div>
+
+    {{#if @authors.length}}
+
+    <div class="ui primary green labeled icon button" {{action 'toggleModalTaskCreate' }}>
+        Create New Task
+        <i class="add icon"></i>
+    </div>
+
+    {{/if}}
 </div>
 
 {{/if}}
+
+<div class="ui modal form" id="modal-error-task">
+    <i class="close icon"></i>
+    <div class="header">
+        Error!
+    </div>
+    <div class="content">
+        <p>Failed to create Task due to..</p>
+        <p>{{this.taskError}}</p>
+    </div>
+    <div class="actions">
+        <button class="ui black deny button" type="button">
+            Ok
+        </button>
+    </div>
+</div>
+
+<div class="ui modal form" id="modal-create-task">
+    <i class="close icon"></i>
+    <div class="header">
+        Create Task
+    </div>
+    <div class="content">
+        <div class="field">
+            <label>Title</label>
+            {{input value=this.taskNewTitle}}
+        </div>
+        <div class="field">
+            <label>Description</label>
+            {{input value=this.taskNewDescription}}
+        </div>
+        <div class="field">
+            <label>Due Date</label>
+            {{input value=this.taskNewDueDate type='date'}}
+        </div>
+        <div class="field">
+            <label>Author</label>
+            <div class="ui right labeled input">
+                <select class="ui selection dropdown" onchange={{action "setTaskAuthorId" value="target.value"}}>
+                    <option disabled selected> -- Select -- </option>
+                    {{#each @authors as |author|}}
+                        <option value={{author.id}}>{{author.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui black deny button" type="button">
+            Cancel
+        </button>
+        <button class="ui positive right button" type="button" {{action "createTask" }}>
+            Create
+        </button>
+    </div>
+</div>
