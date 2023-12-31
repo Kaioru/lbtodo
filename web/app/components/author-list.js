@@ -8,6 +8,11 @@ export default class AuthorListComponent extends Component {
     @tracked authorNewName = '';
 
     @action
+    toggleModalAuthorError() {
+        $('#modal-error-author').modal('show');
+    }
+
+    @action
     toggleModalAuthorCreate() {
         $('#modal-create-author').modal('show');
     }
@@ -21,7 +26,7 @@ export default class AuthorListComponent extends Component {
             .save()
             .catch((ex) => {
                 this.authorError = JSON.parse(ex.errors[0].detail).error.message;
-                this.toggleModalAuthorError(author);
+                this.toggleModalAuthorError();
             });
     }
 }

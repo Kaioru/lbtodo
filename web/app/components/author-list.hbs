@@ -32,6 +32,22 @@
 
 {{/if}}
 
+<div class="ui modal form" id="modal-error-author">
+  <i class="close icon"></i>
+  <div class="header">
+    Error!
+  </div>
+  <div class="content">
+    <p>Failed to create Author due to..</p>
+    <p>{{this.authorError}}</p>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button" type="button">
+      Ok
+    </button>
+  </div>
+</div>
+
 <div class="ui modal form" id="modal-create-author">
   <i class="close icon"></i>
   <div class="header">
