@@ -12,7 +12,7 @@
 
 <div class="ui cards">
     {{#each @tasks as |task|}}
-    <Task-List-Item @task={{task}}></Task-List-Item>
+    <Task-List-Item @task={{task}} @authors={{@authors}}></Task-List-Item>
     {{/each}}
 </div>
 

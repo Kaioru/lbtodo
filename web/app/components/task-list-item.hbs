@@ -26,9 +26,27 @@
                 </div>
             </div>
         {{else}}
-            <span>Completed on ..</span>
+            <span>Completed!</span>
         {{/if}}
     </div>
+</div>
+
+<div class="ui modal form" id="modal-complete-task-{{@task.id}}">
+  <i class="close icon"></i>
+  <div class="header">
+    Complete Task
+  </div>
+  <div class="content">
+    <p>Are you sure you would like to complete '{{@task.title}}'?</p>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button" type="button">
+      Cancel
+    </button>
+    <button class="ui positive right button" type="button" {{action "completeTask" @task}}>
+      Complete
+    </button>
+  </div>
 </div>
 
 <div class="ui modal form" id="modal-delete-task-{{@task.id}}">
@@ -63,4 +81,44 @@
       Ok
     </button>
   </div>
+</div>
+
+<div class="ui modal form" id="modal-edit-task-{{@task.id}}">
+    <i class="close icon"></i>
+    <div class="header">
+        Edit Task
+    </div>
+    <div class="content">
+        <div class="field">
+            <label>Title</label>
+            {{input value=this.taskNewTitle}}
+        </div>
+        <div class="field">
+            <label>Description</label>
+            {{input value=this.taskNewDescription}}
+        </div>
+        <div class="field">
+            <label>Due Date</label>
+            {{input value=this.taskNewDueDate type='date'}}
+        </div>
+        <div class="field">
+            <label>Author</label>
+            <div class="ui right labeled input">
+                <select class="ui selection dropdown" onchange={{action "setTaskAuthorId" value="target.value"}}>
+                    <option disabled selected> -- Select -- </option>
+                    {{#each @authors as |author|}}
+                        <option value={{author.id}}>{{author.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui black deny button" type="button">
+            Cancel
+        </button>
+        <button class="ui positive right button" type="button" {{action "updateTask" @task }}>
+            Update
+        </button>
+    </div>
 </div>
