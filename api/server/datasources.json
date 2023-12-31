@@ -1,12 +1,12 @@
 {
   "main": {
-    "host": "localhost",
+    "host": "db",
     "port": 5432,
     "url": "",
     "database": "lbtodo",
-    "password": "pass",
+    "password": "password",
     "name": "main",
-    "user": "user",
+    "user": "postgres",
     "connector": "postgresql"
   }
 }
