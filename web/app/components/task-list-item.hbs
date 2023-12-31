@@ -30,3 +30,37 @@
         {{/if}}
     </div>
 </div>
+
+<div class="ui modal form" id="modal-delete-task-{{@task.id}}">
+  <i class="close icon"></i>
+  <div class="header">
+    Delete Task
+  </div>
+  <div class="content">
+    <p>Are you sure you would like to delete '{{@task.title}}'?</p>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button" type="button">
+      Cancel
+    </button>
+    <button class="ui negative right button" type="button" {{action "deleteTask" @task}}>
+      Delete
+    </button>
+  </div>
+</div>
+
+<div class="ui modal form" id="modal-error-task-{{@task.id}}">
+  <i class="close icon"></i>
+  <div class="header">
+    Error!
+  </div>
+  <div class="content">
+    <p>Failed to update Task due to..</p>
+    <p>{{this.taskError}}</p>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button" type="button">
+      Ok
+    </button>
+  </div>
+</div>

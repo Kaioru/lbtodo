@@ -1,5 +1,33 @@
+{{#if @authors.length}}
+
+<div class="ui clearing segment">
+  <div class="ui right floated green labeled icon button">
+    Create New Author
+    <i class="add icon"></i>
+  </div>
+  <h1 class="ui left floated header">
+    Authors
+  </h1>
+</div>
+
 <div class="ui relaxed divided list">
     {{#each @authors as |author|}}
     <Author-List-Item @author={{author}}></Author-List-Item>
     {{/each}}
 </div>
+
+{{else}}
+
+<div class="ui placeholder segment">
+  <div class="ui icon header">
+    <i class="pdf file outline icon"></i>
+    No authors yet..
+  </div>
+
+  <div class="ui primary green labeled icon button">
+    Create New Author
+    <i class="add icon"></i>
+  </div>
+</div>
+
+{{/if}}

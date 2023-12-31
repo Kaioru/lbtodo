@@ -29,10 +29,10 @@
     </div>
   </div>
   <div class="actions">
-    <button class="ui black deny button">
+    <button class="ui black deny button" type="button">
       Cancel
     </button>
-    <button class="ui positive right button" {{action "updateAuthor" @author}}>
+    <button class="ui positive right button" type="button" {{action "updateAuthor" @author}}>
       Update
     </button>
   </div>
@@ -47,10 +47,10 @@
     <p>Are you sure you would like to delete '{{@author.name}}'?</p>
   </div>
   <div class="actions">
-    <button class="ui black deny button">
+    <button class="ui black deny button" type="button">
       Cancel
     </button>
-    <button class="ui negative right button" {{action "deleteAuthor" @author}}>
+    <button class="ui negative right button" type="button" {{action "deleteAuthor" @author}}>
       Delete
     </button>
   </div>
@@ -66,7 +66,7 @@
     <p>{{this.authorError}}</p>
   </div>
   <div class="actions">
-    <button class="ui black deny button">
+    <button class="ui black deny button" type="button">
       Ok
     </button>
   </div>

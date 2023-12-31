@@ -1,5 +1,33 @@
+{{#if @tasks.length}}
+
+<div class="ui clearing segment">
+  <div class="ui right floated green labeled icon button">
+    Create New Task
+    <i class="add icon"></i>
+  </div>
+  <h1 class="ui left floated header">
+    Tasks
+  </h1>
+</div>
+
 <div class="ui cards">
     {{#each @tasks as |task|}}
     <Task-List-Item @task={{task}}></Task-List-Item>
     {{/each}}
 </div>
+
+{{else}}
+
+<div class="ui placeholder segment">
+  <div class="ui icon header">
+    <i class="pdf file outline icon"></i>
+    No tasks yet..
+  </div>
+
+  <div class="ui primary green labeled icon button">
+    Create New Task
+    <i class="add icon"></i>
+  </div>
+</div>
+
+{{/if}}
