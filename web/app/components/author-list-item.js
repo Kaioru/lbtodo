@@ -4,25 +4,42 @@ import { action } from '@ember/object';
 
 export default class AuthorListItemComponent extends Component {
     @tracked authorNewName = "";
+    @tracked authorError = "";
 
     @action
     toggleModalAuthorEdit(author) {
-        $('#modal-edit-' + author.id).modal('show');
+        this.authorNewName = author.name
+        $('#modal-edit-author-' + author.id).modal('show');
     }
 
     @action
     toggleModalAuthorDelete(author) {
-        $('#modal-delete-' + author.id).modal('show');
+        $('#modal-delete-author-' + author.id).modal('show');
+    }
+
+    @action
+    toggleModalAuthorError(author) {
+        $('#modal-error-author-' + author.id).modal('show');
     }
 
     @action
     updateAuthor(author) {
         author.name = this.authorNewName;
-        author.save();
+        author
+            .save()
+            .catch((ex) => {
+                this.authorError = JSON.parse(ex.errors[0].detail).error.message
+                this.toggleModalAuthorError(author);
+            });
     }
 
     @action
     deleteAuthor(author) {
-        author.destroyRecord();
+        author
+            .destroyRecord()
+            .catch((ex) => {
+                this.authorError = JSON.parse(ex.errors[0].detail).error.message
+                this.toggleModalAuthorError(author);
+            });
     }
 }

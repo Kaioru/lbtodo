@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="ui modal form" id="modal-edit-{{@author.id}}">
+<div class="ui modal form" id="modal-edit-author-{{@author.id}}">
   <i class="close icon"></i>
   <div class="header">
     Edit Author
@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<div class="ui modal form" id="modal-delete-{{@author.id}}">
+<div class="ui modal form" id="modal-delete-author-{{@author.id}}">
   <i class="close icon"></i>
   <div class="header">
     Delete Author
@@ -52,6 +52,22 @@
     </button>
     <button class="ui negative right button" {{action "deleteAuthor" @author}}>
       Delete
+    </button>
+  </div>
+</div>
+
+<div class="ui modal form" id="modal-error-author-{{@author.id}}">
+  <i class="close icon"></i>
+  <div class="header">
+    Error!
+  </div>
+  <div class="content">
+    <p>Failed to update Author due to..</p>
+    <p>{{this.authorError}}</p>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button">
+      Ok
     </button>
   </div>
 </div>
